@@ -1,0 +1,9 @@
+[package]
+name = "minidump"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+memmap2 = "0.9"
+minidump = "0.22"
+std = { path = "../std" }

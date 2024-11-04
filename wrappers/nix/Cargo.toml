@@ -1,0 +1,16 @@
+[package]
+name = "nix"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fake-system = { path = "../fake-system" }
+libc = { path = "../libc" }
+nix = { version = "0.29", default-features = false, features = [
+    "mman",
+    "process",
+    "ptrace",
+    "signal",
+    "uio",
+    "user",
+] }

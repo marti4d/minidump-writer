@@ -17,26 +17,20 @@ log = "0.4"
 memoffset = "0.9"
 minidump-common = { path = "../rust-minidump/minidump-common" }
 scroll = "0.12"
-tempfile = "3.8"
+std = { path = "wrappers/std" }
+tempfile = { path = "wrappers/tempfile" }
 thiserror = "1.0"
 
 [target.'cfg(unix)'.dependencies]
-libc = "0.2"
+libc = { path = "wrappers/libc" }
 goblin = "0.8.2"
 memmap2 = "0.9"
 
 [target.'cfg(any(target_os = "linux", target_os = "android"))'.dependencies]
-nix = { version = "0.29", default-features = false, features = [
-    "mman",
-    "process",
-    "ptrace",
-    "signal",
-    "uio",
-    "user",
-] }
+nix = { path = "wrappers/nix" }
 # Used for parsing procfs info.
 # default-features is disabled since it pulls in chrono
-procfs-core = { version = "0.16", default-features = false }
+procfs-core = { path = "wrappers/procfs-core" }
 
 [target.'cfg(target_os = "windows")'.dependencies]
 bitflags = "2.4"
@@ -49,9 +43,10 @@ mach2 = "0.4"
 # We auto-detect what the test binary that is spawned for most tests should be
 # compiled for
 current_platform = "0.2"
+fake-system = { path = "wrappers/fake-system" }
 # Minidump-processor is async so we need an executor
 futures = { version = "0.3", features = ["executor"] }
-minidump = "0.22"
+minidump = { path = "wrappers/minidump" }
 memmap2 = "0.9"
 
 [target.'cfg(target_os = "macos")'.dev-dependencies]

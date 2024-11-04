@@ -1,0 +1,8 @@
+[package]
+name = "std"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fake-system = { path = "../fake-system" }
+memmap2 = "0.9"

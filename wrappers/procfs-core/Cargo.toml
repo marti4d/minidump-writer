@@ -1,0 +1,8 @@
+[package]
+name = "procfs-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+procfs-core = { version = "0.16", default-features = false }
+std = { path = "../std" }
